@@ -19,10 +19,21 @@
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
-    <!--NAVBAR-->
+
+    <!--HEADER-->
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
+                <ul class="nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Link 1</a>
+                            <a class="dropdown-item" href="#">Link 2</a>
+                            <a class="dropdown-item" href="#">Link 3</a>
+                        </div>
+                    </li>
+                </ul>
                 <a class="navbar-brand" asp-area="" asp-page="/Index">VillageDrill</a>
                 <div class="d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
@@ -30,6 +41,8 @@
             </div>
         </nav>
     </header>
+
+    <!--BODY-->
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
@@ -37,12 +50,12 @@
         </main>
     </div>
 
+    <!--FOOTER-->
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2019 - VillageDrill - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
@@ -62,7 +75,6 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>
