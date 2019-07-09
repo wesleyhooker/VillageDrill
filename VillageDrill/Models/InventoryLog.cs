@@ -25,7 +25,7 @@ namespace VillageDrill.Models
         
         public string LastModifiedBy { get; set; }
 
-        public DateTimeOffset LastModifieDate { get; set; }
+        public DateTimeOffset LastModifiedDate { get; set; }
 
     }
 }
