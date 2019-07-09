@@ -15,6 +15,7 @@ namespace VillageDrill.Models
         [Required(ErrorMessage = "A Vendor Name is required")]
         [DisplayName("Vendor Name")]
         public string VendorName { get; set; }
+        [Required(ErrorMessage = "A Vendor Address is required")]
         [DisplayName("Vendor Address")]
         public string VendorAddress { get; set; }
         [DisplayName("Last Modified by")]
