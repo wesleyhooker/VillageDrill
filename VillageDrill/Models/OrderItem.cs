@@ -14,8 +14,13 @@ namespace VillageDrill.Models
         [Required]
         [Display(Name = "Vendor SKU")]
         public string VendorSKU { get; set; }
+
         [Required]
+        //Decide between decimal or small money
+        //[Column(TypeName = "smallmoney")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+
         [Required]
         [Display(Name = "Quantity Ordered")]
         public int QuantityOrdered { get; set; }

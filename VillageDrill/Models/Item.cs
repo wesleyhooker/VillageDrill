@@ -22,7 +22,12 @@ namespace VillageDrill.Models
         public int OnHandQty { get; set; }
         [Required]
         [DisplayName("Retail Cost")]
+
+        //Decide between decimal or small money
+        //[Column(TypeName = "smallmoney")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ListRetailCost { get; set; }
+
         [Required]
         [DisplayName("Reorder Quantity")]
         public int ReorderQty { get; set; }
@@ -31,6 +36,7 @@ namespace VillageDrill.Models
         public int MaxQty { get; set; }
         [Required]
         [DisplayName("Measure Ammount")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MeasureAmnt { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
