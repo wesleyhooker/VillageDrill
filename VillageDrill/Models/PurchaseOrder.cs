@@ -20,9 +20,9 @@ namespace VillageDrill.Models
         public DateTime DateOrdered { get; set; }
         [Required]
         [Display(Name = "Vendor PO")]
-        public String VendorPO { get; set; }
+        public string VendorPO { get; set; }
         [Display(Name = "Last Modified By")]
-        public String LastModifiedBy { get; set; }
+        public string LastModifiedBy { get; set; }
         [Display(Name = "Last Modified On")]
         public DateTime LastModifiedDate { get; set; }  
 

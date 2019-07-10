@@ -20,6 +20,7 @@ namespace VillageDrill.Models
         [DisplayName("Last Modified on")]
         public DateTime LastModifiedDate { get; set; }
 
+
         //Foreign Key
         [Display(Name = "Item (Part)")]
         public int ItemID { get; set; }

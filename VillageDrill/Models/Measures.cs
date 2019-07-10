@@ -11,6 +11,7 @@ namespace VillageDrill.Models
 {
     public class Measures
     {
+        [Key]
         public int MeasureID { get; set; }
         [Required]
         [Display(Name = "Measurement Name")]

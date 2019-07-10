@@ -11,30 +11,33 @@ namespace VillageDrill.Models
     {
         [Key]
         public int OrderItemID { get; set; }
+        [Required]
+        [Display(Name = "Vendor SKU")]
+        public string VendorSKU { get; set; }
+        [Required]
+        public decimal Price { get; set; }
+        [Required]
+        [Display(Name = "Quantity Ordered")]
+        public int QuantityOrdered { get; set; }
+        [Display(Name = "Date Delivered")]
+        public DateTime DateDelivered { get; set; }
+        [Display(Name = "Last Modified by")]
+        public string LastModifiedBy { get; set; }
+        [Display(Name = "Last Modified on")]
+        public DateTime LastModifiedDate { get; set; }
 
+
+        //Foreign Keys
         [Display(Name = "Item (Part)")]
         public int ItemID { get; set; }
 
         [ForeignKey("ItemID")]
         public virtual Item Item { get; set; }
 
-
-        public int PurchaseOrderID {get; set;}
+        [Display(Name = "Purchase Order")]
+        public int PurchaseOrderID { get; set; }
 
         [ForeignKey("PurchaseOrderID")]
         public virtual PurchaseOrder PurchaseOrder { get; set; }
-
-        public string VendorSKU { get; set; }
-
-        public double Price { get; set; }
-
-        public int QuantityOrdered { get; set; }
-
-        public DateTimeOffset DateDelivered { get; set; }
-
-        public string LastModifiedBy { get; set; }
-
-        public DateTimeOffset LastModifiedDate { get; set; }
- 
     }
 }
