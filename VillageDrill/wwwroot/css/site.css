@@ -54,3 +54,13 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*Overwritten BootStrap
+-------------------------------------------------- */
+.table tr {
+    border: 1px solid transparent;
+}
+
+.table-hover tbody tr:hover, .table-hover tbody tr:hover th {
+    border: 1px solid lightgray;
+}
