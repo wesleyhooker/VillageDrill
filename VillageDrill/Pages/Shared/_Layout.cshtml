@@ -22,38 +22,46 @@
 
     <!--HEADER-->
     <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-                <div class="container">
-                    <ul class="nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="Admin" asp-page="Inventory">Inventory</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <a class="navbar-brand float-left ml-3" asp-area="" asp-page="/Index">Village Drill</a>
-                    <div class="d-sm-inline-flex flex-sm-row-reverse ml-auto">
-                        <partial name="_LoginPartial" />
-                    </div>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3" style="width:100%; white-space: nowrap;">
+                <div class="container-fluid">
+                        <ul class="nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Admin" asp-page="Inventory">Inventory</a>
+                                    <a class="dropdown-item" href="#">Link 2</a>
+                                    <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <a class="navbar-brand float-left ml-3" asp-area="" asp-page="/Index">Village Drill</a>
+                        <div class="d-sm-inline-flex flex-sm-row-reverse ml-auto">
+                            <partial name="_LoginPartial" />
+                        </div>
                 </div>
-        </nav>
+            </nav>
     </header>
 
     <!--BODY-->
     <div class="container-fluid" style="margin: 60px 0px 0px 0px">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="row">
+            <div class="col-xl-1">
+                </div>
+            <div class="col-xl-10">
+                <partial name="_CookieConsentPartial" />
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <div class="col-xl-1">
+            </div>
+        </div>
     </div>
 
     <!--FOOTER-->
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - VillageDrill - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2019 - VillageDrill
         </div>
     </footer>
     <environment include="Development">
