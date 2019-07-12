@@ -21,29 +21,21 @@
 
     <!--HEADER-->
     <header>
-        <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <ul class="nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" asp-area="Admin" asp-page="Inventory">Inventory</a>
-                            <a class="dropdown-item" href="#">Link 2</a>
-                            <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                    </li>
-                </ul>
-                <a class="navbar-brand float-left ml-3" asp-area="" asp-page="/Index">Village Drill</a>
-                <div class="mr-3 ml-auto">
-                    <a href="#"><i class="fas fa-bell fa-1x"></i></a>
-                    <small class="navbar-text">
-                        0
-                    </small>
-                </div>
-                <div class="d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
+        <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3 pl-sm-5 pr-sm-5">
+            <ul class="nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Inventory">Inventory</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </li>
+            </ul>
+
+            <a class="navbar-brand ml-sm-3 mr-auto" asp-area="" asp-page="/Index">Village Drill</a>
+
+            <partial name="_LoginPartial" />
         </nav>
     </header>
 
