@@ -1,0 +1,70 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.VendorModel
+@{
+    ViewData.Add("Title", "Vendor");
+}
+
+<!--Title-->
+<h2>@ViewData["Title"]</h2>
+
+<div class="tab-content">
+    <div  class="tab-pane active">
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td>Rocky Mountain</td>
+
+                    <td><a href="#detailsTab">Details</a></td>
+                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
+                </tr>
+                <tr>
+                    <td>Usa Tool and...</td>
+
+                    <td><a href="#detailsTab">Details</a></td>
+                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
+                </tr>
+                <tr>
+                    <td>Other...</td>
+
+                    <td><a href="#detailsTab">Details</a></td>
+                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Add Button-->
+<a class="float-right" href="#"><i class="fas fa-plus-circle fa-3x"></i></a>
+
+
+<!--Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#searchTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(".nav-tabs a").click(function () {
+            $(this).tab('show');
+        });
+    });
+</script>

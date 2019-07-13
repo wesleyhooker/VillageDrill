@@ -45,7 +45,7 @@
                         Delivery Date: 11/2/18
                     </td>
                     <td>Pending</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a  class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td><button type="button" class="btn btn-primary">Recieve</button></td>
                 </tr>
                 <tr>
@@ -55,7 +55,7 @@
                         Delivery Date: 11/10/18
                     </td>
                     <td>Pending</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td><button type="button" class="btn btn-primary">Recieve</button></td>
                 </tr>
                 <tr>
@@ -65,7 +65,7 @@
                         Delivery Date: 10/1/18
                     </td>
                     <td>Received</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td></td>
                 </tr>
             </tbody>
@@ -81,7 +81,7 @@
                         Delivery Date: 11/2/18
                     </td>
                     <td>Pending</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td><button type="button" class="btn btn-primary">Recieve</button></td>
                 </tr>
                 <tr>
@@ -91,7 +91,7 @@
                         Delivery Date: 11/10/18
                     </td>
                     <td>Pending</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td><button type="button" class="btn btn-primary">Recieve</button></td>
                 </tr>
             </tbody>
@@ -108,7 +108,7 @@
                         Delivery Date: 10/1/18
                     </td>
                     <td>Received</td>
-                    <td><button type="button" class="btn btn-primary">Details</button></td>
+                    <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
                     <td></td>
                 </tr>
             </tbody>
@@ -117,15 +117,14 @@
     <div id="overdueTab" class="tab-pane fade">
         <table class="table table-striped table-hover table-borderless table-responsive-sm">
 
-            <tbody id="searchTable">
-                
-            </tbody>
+            <tbody id="searchTable"></tbody>
         </table>
     </div>
 </div>
 
 
-
+<!--Add Button-->
+<a class="float-right" href="#"><i class="fas fa-plus-circle fa-3x"></i></a>
 
 
 
