@@ -62,7 +62,9 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-/*Overwritten BootStrap*/
+/*_______________________Overwritten BootStrap_______________________*/
+
+/*TABLES*/
 table {
     border-collapse: separate;
     border-spacing: 0 10px;
@@ -102,10 +104,12 @@ tr th:last-child {
     border-bottom-right-radius: 6px;
 }
 
-.table tr {
-    border: 1px solid transparent;
+tr:hover td{
+    background-color: lightcyan;
 }
 
-.table-hover tbody tr:hover, .table-hover tbody tr:hover th {
-    border: 1px solid lightgray;
+
+/*NAVBARS*/
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
 }
