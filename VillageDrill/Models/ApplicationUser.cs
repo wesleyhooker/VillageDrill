@@ -15,5 +15,7 @@ namespace VillageDrill.Models
         public bool IsSuperAdmin { get; set; }
         [NotMapped]
         public bool IsAdmin { get; set; }
+        [NotMapped]
+        public bool IsStandardUser { get; set; }
     }
 }

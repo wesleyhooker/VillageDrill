@@ -1,0 +1,31 @@
+﻿@page
+@model VillageDrill.Areas.SuperAdmin.Pages.UsersModel
+@using VillageDrill.Utility;
+@using Microsoft.AspNetCore.Identity;
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info" style="text-align:left">
+            <th>User ID</th>
+            <th>UserName</th>
+            <th>Phone Number</th>
+            <th>Access Level</th>
+        </tr>
+
+        @foreach(var user in Model.Users)
+        {
+            <tr style="text-align:left">
+                <td>@user.ID</td>
+                <td>@user.UserName</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </table>
+</div>
+<div><a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Create User</a></div>

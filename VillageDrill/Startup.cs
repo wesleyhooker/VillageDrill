@@ -39,11 +39,15 @@ namespace VillageDrill
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //For NToastNotify supporting Toastr
+            services.AddMvc().AddNToastNotifyToastr();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +71,10 @@ namespace VillageDrill
 
             app.UseAuthentication();
 
+            //must be before app.UseMvc
+            app.UseNToastNotify();
             app.UseMvc();
+
         }
     }
 }

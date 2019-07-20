@@ -26,7 +26,7 @@ namespace VillageDrill.Data
         public DbSet<OrderItem> OrderItem { get; set; }
         public DbSet<RecievedItems> RecievedItems { get; set; }
         public DbSet<RecipeLine> RecipeLine { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {

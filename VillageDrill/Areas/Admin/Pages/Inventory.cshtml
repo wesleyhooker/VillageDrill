@@ -1,12 +1,12 @@
 ﻿@page "/"
 @model VillageDrill.Areas.Admin.Pages.InventoryModel
+@await Component.InvokeAsync("NToastNotify")
 @{
     ViewData.Add("Title", "Inventory");
 }
 
 <!--Title-->
 <h2>@ViewData["Title"]</h2>
-
 <!--Search Bar-->
 <form class="form-inline" action="">
     <div class="input-group">
