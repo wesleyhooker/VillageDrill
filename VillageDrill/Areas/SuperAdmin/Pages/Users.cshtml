@@ -1,5 +1,6 @@
 ﻿@page
 @model VillageDrill.Areas.SuperAdmin.Pages.UsersModel
+@await Component.InvokeAsync("NToastNotify")
 @using VillageDrill.Utility;
 @using Microsoft.AspNetCore.Identity;
 
@@ -15,16 +16,28 @@
             <th>UserName</th>
             <th>Phone Number</th>
             <th>Access Level</th>
+            <th>Account Status</th>
+            <th></th>
         </tr>
 
-        @foreach(var user in Model.Users)
+        @foreach (var user in Model.Users)
         {
-            <tr style="text-align:left">
-                <td>@user.ID</td>
-                <td>@user.UserName</td>
-                <td>@user.PhoneNumber</td>
-                <td>@user.Role</td>
-            </tr>
+        <tr style="text-align:left">
+            <td>@user.ID</td>
+            <td>@user.UserName</td>
+            <td>@user.PhoneNumber</td>
+            <td>@user.Role</td>
+            @if (user.LockedOut == true)
+            {               
+                <td>Locked</td>
+                <td><a class="btn btn-success" asp-area="SuperAdmin" asp-page="EnableUser" asp-route-id="@user.ID">Unlock</a></td>
+            }
+            else
+            {
+                <td>Active</td>
+                <td><a class="btn btn-danger" asp-area="SuperAdmin" asp-page="DeleteUser" asp-route-id="@user.ID">Disable</a></td>
+            }
+        </tr>
         }
     </table>
 </div>

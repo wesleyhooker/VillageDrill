@@ -34,6 +34,7 @@ namespace VillageDrill.Areas.SuperAdmin.Pages
             public string UserName;
             public string PhoneNumber;
             public string Role;
+            public bool LockedOut;
         }
 
         /// <summary>
@@ -55,6 +56,15 @@ namespace VillageDrill.Areas.SuperAdmin.Pages
                 myUser.UserName = superAdminUsers[i].UserName;
                 myUser.PhoneNumber = superAdminUsers[i].PhoneNumber;
                 myUser.Role = "Super Admin";
+
+                if(superAdminUsers[i].LockoutEnd >= DateTime.Now)
+                {
+                    myUser.LockedOut = true;
+                }
+                else {
+                    myUser.LockedOut = false;
+                }
+
                 Users.Add(myUser);
             }
 
@@ -66,6 +76,16 @@ namespace VillageDrill.Areas.SuperAdmin.Pages
                 myUser.UserName = AdminUsers[i].UserName;
                 myUser.PhoneNumber = AdminUsers[i].PhoneNumber;
                 myUser.Role = "Admin";
+
+                if (AdminUsers[i].LockoutEnd >= DateTime.Now)
+                {
+                    myUser.LockedOut = true;
+                }
+                else
+                {
+                    myUser.LockedOut = false;
+                }
+
                 Users.Add(myUser);
             }
 
@@ -77,8 +97,23 @@ namespace VillageDrill.Areas.SuperAdmin.Pages
                 myUser.UserName = StandardUsers[i].UserName;
                 myUser.PhoneNumber = StandardUsers[i].PhoneNumber;
                 myUser.Role = "Standard User";
+
+                if (StandardUsers[i].LockoutEnd >= DateTime.Now)
+                {
+                    myUser.LockedOut = true;
+                }
+                else
+                {
+                    myUser.LockedOut = false;
+                }
+
                 Users.Add(myUser);
             }
+
+        }
+
+        public void OnPost(string id)
+        {
 
         }
     }
