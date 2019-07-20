@@ -21,7 +21,7 @@
 
     <!--HEADER-->
     <header>
-        <nav class="navbar navbar-dark bg-dark border-bottom box-shadow mb-3 pl-sm-5 pr-sm-5">
+        <nav class="navbar border-bottom box-shadow mb-sm-3 pl-sm-5 pr-sm-5 fixed-top">
             <ul class="nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
@@ -33,21 +33,23 @@
                             <a class="dropdown-item" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
                         }
                         <a class="dropdown-item" href="#">Assemble</a>
-                        <a class="dropdown-item"asp-area="Admin" asp-page="Vendor">Vendor</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Vendor">Vendor</a>
                         <a class="dropdown-item" href="#">Alerts</a>
                         <a class="dropdown-item" href="#">Reports</a>
                     </div>
                 </li>
             </ul>
 
-            <a class="navbar-brand ml-sm-3 mr-auto" href="/">Village Drill</a>
+            <a class="navbar-brand ml-sm-3 mr-auto" href="/">
+                <img src="~/images/wholiveslogo.png" alt="WHOlives Logo" style="width:150px;">
+            </a>
 
             <partial name="_LoginPartial" />
         </nav>
     </header>
 
     <!--BODY-->
-    <div class="container-fluid" style="margin: 60px 0px 0px 0px">
+    <div class="container-fluid" style="margin: 100px 0px 0px 0px">
         <div class="row">
             <div class="col-xl-1">
             </div>
@@ -89,6 +91,7 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
