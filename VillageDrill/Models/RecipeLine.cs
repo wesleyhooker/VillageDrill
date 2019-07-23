@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace VillageDrill.Models
 {
-    public class InventoryLog
+    public class RecipeLine
     {
         [Key]
-        public int LogID { get; set; }
+        public int RecipeLineID { get; set; }
+        [DisplayName("Required Item Quantity")]
         [Required]
-        [DisplayName("Previous Quantity")]
-        public int PreviousQty { get; set; }
-        [Required]
-        [DisplayName("New Quantity")]
-        public int NewQty { get; set; }
-        [Required]
-        public bool Reconciled { get; set; }
+        public int RequiredItemQuantity { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
         [DisplayName("Last Modified on")]
@@ -27,10 +22,16 @@ namespace VillageDrill.Models
 
 
         //Foreign Key
-        [Display(Name = "Item")]
+        [Display(Name = "Item (Part)")]
         public int ItemID { get; set; }
 
         [ForeignKey("ItemID")]
         public virtual Item Item { get; set; }
+
+        [Display(Name = "Assembly Recipe")]
+        public int AssemblyRecipeID { get; set; }
+
+        [ForeignKey("AssemblyRecipeID")]
+        public virtual AssemblyRecipe AssemblyRecipe { get; set; }
     }
 }

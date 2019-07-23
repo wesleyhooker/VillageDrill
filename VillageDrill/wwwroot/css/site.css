@@ -12,11 +12,17 @@ a.navbar-brand {
 html {
   font-size: 14px;
 }
-@media (min-width: 768px) {
+@media (min-width: 300px) {
+    html {
+        font-size: 11px;
+    }
+}
+@media (min-width: 576px) {
   html {
     font-size: 16px;
   }
 }
+
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -43,8 +49,9 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -53,4 +60,56 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/*_______________________Overwritten BootStrap_______________________*/
+
+/*TABLES*/
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+tbody tr {
+    text-decoration: none;
+    background-color: #D1C0AB;
+    border: 1px solid #D1C0AB;
+    background-image: linear-gradient(bottom, rgb(209, 192, 171) 0%, rgb(209, 192, 171) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(209, 192, 171) 0%, rgb(209, 192, 171) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(209, 192, 171) 0%, rgb(209, 192, 171) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(209, 192, 171) 0%, rgb(209, 192, 171) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(209, 192, 171) 0%, rgb(209, 192, 171) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(209, 192, 171)), color-stop(1, rgb(209, 192, 171)) );
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 0px #D1C0AB, 0px 1px 5px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+    -moz-box-shadow: 0px 1px 0px #D1C0AB, 0px 1px 5px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+    box-shadow: 0px 1px 0px #D1C0AB, 0px 1px 5px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 1px rgba(255,255,255,.5);
+}
+
+tbody td {
+    background-color: white;
+}
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+tr:hover td{
+    background-color: lightcyan;
+}
+
+
+/*NAVBARS*/
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
 }

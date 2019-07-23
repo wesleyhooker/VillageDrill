@@ -8,18 +8,14 @@ using System.Threading.Tasks;
 
 namespace VillageDrill.Models
 {
-    public class InventoryLog
+    public class RecievedItems
     {
         [Key]
-        public int LogID { get; set; }
-        [Required]
-        [DisplayName("Previous Quantity")]
-        public int PreviousQty { get; set; }
-        [Required]
-        [DisplayName("New Quantity")]
-        public int NewQty { get; set; }
-        [Required]
-        public bool Reconciled { get; set; }
+        public int RecievedID { get; set; }
+        [DisplayName("Quantity Received")]
+        [Required(ErrorMessage = "A Quantity Received is required")]
+        public int QuantityReceived { get; set; }
+        public string Notes { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
         [DisplayName("Last Modified on")]
@@ -27,10 +23,10 @@ namespace VillageDrill.Models
 
 
         //Foreign Key
-        [Display(Name = "Item")]
-        public int ItemID { get; set; }
+        [Display(Name = "Vendor")]
+        public int VendorID { get; set; }
 
-        [ForeignKey("ItemID")]
-        public virtual Item Item { get; set; }
+        [ForeignKey("VendorID")]
+        public virtual  Vendor Vendor { get; set; }
     }
 }

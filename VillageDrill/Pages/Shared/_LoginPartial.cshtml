@@ -3,10 +3,20 @@
 @inject UserManager<IdentityUser> UserManager
 
 
+@if (SignInManager.IsSignedIn(User))
+{ 
+    <div class="mr-sm-3 ml-auto">
+        <a href="#"><i class="fas fa-bell fa-1x"></i></a>
+        <span class=" badge badge-danger" style="font-size:10px;">
+            0
+        </span>
+    </div>
+}
+
 <ul class="nav flex-column ">
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-user-circle fa-2x"></i></a>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu dropdown-menu-right">
             <ul class="nav flex-column ">
                 @if (SignInManager.IsSignedIn(User))
                 {
