@@ -1,0 +1,75 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.AssembleModel
+@{
+}
+
+<h2>Iventory to Make Drill</h2>
+
+<div class="tab-content">
+    <div class="tab-pane active">
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Needed</th>
+                    <th>OnHand</th>
+                    <th>HaveParts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Drill</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>CB Box</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+                <tr>
+                    <td>Large Box</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--select Item-->
+<div class="form-group row ">
+    
+        <div class="col-sm-4">
+            <label>Item</label></br>
+            <select class="" id="sel1">
+                <option>Drill</option>
+                <option>CB Box</option>
+                <option>Large Box</option>
+                
+            </select>
+        </div>
+        <div class="col-sm-8">
+            <label>Qty</label></br>
+            <input type="text" class="input-group-sm" />
+
+        </div>
+
+</div>
+
+
+<div>
+    <button type="button" class="btn btn-success">Check Missing</button>
+    <button type="submit" class="btn btn-warning">Assemble</button>
+    <button type="button" class="btn btn-outline-dark">Cancel</button>
+</div>
+
+<!--Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
