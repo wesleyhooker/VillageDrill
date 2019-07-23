@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Village Drill</title>
-
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
@@ -15,47 +14,60 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
 
     <!--HEADER-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <ul class="nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Link 1</a>
-                            <a class="dropdown-item" href="#">Link 2</a>
-                            <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                    </li>
-                </ul>
-                <a class="navbar-brand float-left ml-3" asp-area="" asp-page="/Index">Village Drill</a>
-                <div class="d-sm-inline-flex flex-sm-row-reverse ml-auto">
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
+        <nav class="navbar border-bottom box-shadow mb-sm-3 pl-sm-5 pr-sm-5 fixed-top">
+            <ul class="nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/">Inventory</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Orders">Orders</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Assemble">Assemble</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Vendor">Vendor</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Alerts">Alerts</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-page="Reports">Reports</a>
+                    </div>
+                </li>
+            </ul>
+
+            <a class="navbar-brand ml-sm-3 mr-auto" href="/">
+                <img src="~/images/wholiveslogo.png" alt="WHOlives Logo" style="width:150px;">
+            </a>
+
+            <partial name="_LoginPartial" />
         </nav>
     </header>
 
     <!--BODY-->
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container-fluid" style="margin: 100px 0px 0px 0px">
+        <div class="row">
+            <div class="col-xl-1">
+            </div>
+            <div class="col-xl-10">
+                <partial name="_CookieConsentPartial" />
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <div class="col-xl-1">
+            </div>
+        </div>
     </div>
 
     <!--FOOTER-->
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - VillageDrill - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2019 - VillageDrill
         </div>
     </footer>
+
+    <!--JAVASCRIPT FWs-->
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
@@ -75,6 +87,7 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

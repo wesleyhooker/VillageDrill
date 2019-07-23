@@ -1,0 +1,63 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.OrderDetailsModel
+@{
+    ViewData.Add("Title", "Order Details");
+}
+
+<!--Title-->
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <form>
+        <div class="row">
+            <div class="form-group col-3">
+                <td>Vendor: Home Depot</td><br />
+                <td>Order Date: 10/13/18</td>
+            </div>
+            <div class="form-group col-9">
+                <td>Status: recieved</td> <br />
+                <td>Delivery Date: 10/14/18</td>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="tab-content">
+    <div class="tab-pane active">
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>U/M</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1/4 Lock Washers</td>
+                    <td>10</td>
+                    <td>ea</td>
+                    <td>$15</td>
+                </tr>
+                <tr>
+                    <td>5/8 wire</td>
+                    <td>3</td>
+                    <td>ea</td>
+                    <td>$10</td>
+                </tr>
+               
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <button type="button" class="btn btn-outline-dark">Back</button>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="button" class="btn btn-danger">Delete</button>
+</div>
+<!--Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
