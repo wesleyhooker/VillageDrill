@@ -32,6 +32,10 @@
                         <a class="dropdown-item" asp-area="Admin" asp-page="Vendor">Vendor</a>
                         <a class="dropdown-item" asp-area="Admin" asp-page="Alerts">Alerts</a>
                         <a class="dropdown-item" asp-area="Admin" asp-page="Reports">Reports</a>
+                        @if (User.IsInRole(SD.SuperAdminEndUser))
+                        {
+                            <a class="dropdown-item" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
+                        }
                     </div>
                 </li>
             </ul>
