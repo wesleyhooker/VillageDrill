@@ -70,6 +70,12 @@ table {
     border-spacing: 0 10px;
 }
 
+thead {
+    background: linear-gradient(96.47deg, #0471B9 0%, #3CD0FF 100%);
+    border-radius: 25px;
+    color: white;
+}
+
 tbody tr {
     text-decoration: none;
     background-color: #D1C0AB;
@@ -112,4 +118,14 @@ tr:hover td{
 /*NAVBARS*/
 .navbar {
     background: rgba(255, 255, 255, 0.9);
+}
+
+/*BUTTONS*/
+button {
+    background-color: #0471B9;
+    color: white;
+}
+
+a {
+    color: #0471B9;
 }
