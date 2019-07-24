@@ -70,6 +70,12 @@ table {
     border-spacing: 0 10px;
 }
 
+thead {
+    background: linear-gradient(96.47deg, #0471B9 0%, #3CD0FF 100%);
+    border-radius: 25px;
+    color: white;
+}
+
 tbody tr {
     text-decoration: none;
     background-color: #D1C0AB;
