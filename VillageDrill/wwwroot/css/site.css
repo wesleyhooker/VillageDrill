@@ -119,3 +119,13 @@ tr:hover td{
 .navbar {
     background: rgba(255, 255, 255, 0.9);
 }
+
+/*BUTTONS*/
+button {
+    background-color: #0471B9;
+    color: white;
+}
+
+a {
+    color: #0471B9;
+}
