@@ -22,22 +22,25 @@
 
         @foreach (var user in Model.Users)
         {
-        <tr style="text-align:left">
-            <td>@user.ID</td>
-            <td>@user.UserName</td>
-            <td>@user.PhoneNumber</td>
-            <td>@user.Role</td>
-            @if (user.LockedOut == true)
-            {               
-                <td>Locked</td>
-                <td><a class="btn btn-success" asp-area="SuperAdmin" asp-page="EnableUser" asp-route-id="@user.ID">Unlock</a></td>
-            }
-            else
+            @if (user.Role != "Super Admin")
             {
-                <td>Active</td>
-                <td><a class="btn btn-danger" asp-area="SuperAdmin" asp-page="DeleteUser" asp-route-id="@user.ID">Disable</a></td>
-            }
-        </tr>
+                <tr style="text-align:left">
+                    <td>@user.ID</td>
+                    <td>@user.UserName</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.Role</td>
+                    @if (user.LockedOut == true)
+                    {
+                        <td>Locked</td>
+                        <td><a class="btn btn-success" asp-area="SuperAdmin" asp-page="EnableUser" asp-route-id="@user.ID">Unlock</a></td>
+                    }
+                    else
+                    {
+                        <td>Active</td>
+                        <td><a class="btn btn-danger" asp-area="SuperAdmin" asp-page="DeleteUser" asp-route-id="@user.ID">Disable</a></td>
+                    }                    
+                </tr>
+             }
         }
     </table>
 </div>
