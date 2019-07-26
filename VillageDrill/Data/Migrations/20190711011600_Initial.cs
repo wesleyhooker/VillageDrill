@@ -234,7 +234,7 @@ namespace VillageDrill.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RecievedItems",
+                name: "ReceivedItems",
                 columns: table => new
                 {
                     RecievedID = table.Column<int>(nullable: false)
@@ -460,7 +460,7 @@ namespace VillageDrill.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_RecievedItems_VendorID",
-                table: "RecievedItems",
+                table: "ReceivedItems",
                 column: "VendorID");
 
             migrationBuilder.CreateIndex(
@@ -501,7 +501,7 @@ namespace VillageDrill.Migrations
                 name: "OrderItem");
 
             migrationBuilder.DropTable(
-                name: "RecievedItems");
+                name: "ReceivedItems");
 
             migrationBuilder.DropTable(
                 name: "RecipeLine");

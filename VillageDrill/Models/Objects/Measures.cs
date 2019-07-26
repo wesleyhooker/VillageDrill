@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace VillageDrill.Models
+namespace VillageDrill.Models.Objects
 {
     public class Measures
     {

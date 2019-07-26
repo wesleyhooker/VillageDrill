@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VillageDrill.Data;
-using VillageDrill.Models;
 using Microsoft.EntityFrameworkCore;
 using VillageDrill.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using NToastNotify;
+using VillageDrill.Models.Objects;
 
 namespace VillageDrill.Areas.SuperAdmin.Pages
 {

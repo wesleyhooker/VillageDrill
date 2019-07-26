@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace VillageDrill.Models
+namespace VillageDrill.Models.Objects
 {
-    public class RecievedItems
+    public class ReceivedItems
     {
         [Key]
         public int RecievedID { get; set; }
@@ -27,6 +27,6 @@ namespace VillageDrill.Models
         public int VendorID { get; set; }
 
         [ForeignKey("VendorID")]
-        public virtual  Vendor Vendor { get; set; }
+        public virtual Vendor Vendor { get; set; }
     }
 }

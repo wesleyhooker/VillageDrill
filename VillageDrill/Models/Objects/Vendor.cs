@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel;
 
-namespace VillageDrill.Models
+namespace VillageDrill.Models.Objects
 {
     public class Vendor
     {

@@ -364,7 +364,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.RecievedItems", b =>
+            modelBuilder.Entity("VillageDrill.Models.ReceivedItems", b =>
                 {
                     b.Property<int>("RecievedID")
                         .ValueGeneratedOnAdd()
@@ -384,7 +384,7 @@ namespace VillageDrill.Migrations
 
                     b.HasIndex("VendorID");
 
-                    b.ToTable("RecievedItems");
+                    b.ToTable("ReceivedItems");
                 });
 
             modelBuilder.Entity("VillageDrill.Models.RecipeLine", b =>
@@ -540,7 +540,7 @@ namespace VillageDrill.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.RecievedItems", b =>
+            modelBuilder.Entity("VillageDrill.Models.ReceivedItems", b =>
                 {
                     b.HasOne("VillageDrill.Models.Vendor", "Vendor")
                         .WithMany()

@@ -6,15 +6,20 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace VillageDrill.Models
+namespace VillageDrill.Models.Objects
 {
-    public class RecipeLine
+    public class InventoryLog
     {
         [Key]
-        public int RecipeLineID { get; set; }
-        [DisplayName("Required Item Quantity")]
+        public int LogID { get; set; }
         [Required]
-        public int RequiredItemQuantity { get; set; }
+        [DisplayName("Previous Quantity")]
+        public int PreviousQty { get; set; }
+        [Required]
+        [DisplayName("New Quantity")]
+        public int NewQty { get; set; }
+        [Required]
+        public bool Reconciled { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
         [DisplayName("Last Modified on")]
@@ -22,16 +27,10 @@ namespace VillageDrill.Models
 
 
         //Foreign Key
-        [Display(Name = "Item (Part)")]
+        [Display(Name = "Item")]
         public int ItemID { get; set; }
 
         [ForeignKey("ItemID")]
         public virtual Item Item { get; set; }
-
-        [Display(Name = "Assembly Recipe")]
-        public int AssemblyRecipeID { get; set; }
-
-        [ForeignKey("AssemblyRecipeID")]
-        public virtual AssemblyRecipe AssemblyRecipe { get; set; }
     }
 }

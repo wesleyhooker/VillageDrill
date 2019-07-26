@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using VillageDrill.Models;
+using VillageDrill.Models.Objects;
 
 namespace VillageDrill.Data
 {
@@ -24,7 +24,7 @@ namespace VillageDrill.Data
         public DbSet<Item> Item { get; set; }
         public DbSet<Measures> Measures { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
-        public DbSet<RecievedItems> RecievedItems { get; set; }
+        public DbSet<ReceivedItems> RecievedItems { get; set; }
         public DbSet<RecipeLine> RecipeLine { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
 

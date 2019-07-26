@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using VillageDrill.Models;
 using VillageDrill.Utility;
 using NToastNotify;
+using VillageDrill.Models.Objects;
 
 namespace VillageDrill.Areas.Identity.Pages.Account
 {

@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using VillageDrill.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using VillageDrill.Extensions;
 
 namespace VillageDrill
 {
@@ -35,15 +36,21 @@ namespace VillageDrill
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //Sql Server
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            //Identities
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            //DataBase Repository
+            services.ConfigureRepositoryWrapper();
+
+            //MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //For NToastNotify supporting Toastr

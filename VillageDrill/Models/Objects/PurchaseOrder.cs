@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace VillageDrill.Models
+namespace VillageDrill.Models.Objects
 {
     public class PurchaseOrder
     {
@@ -24,7 +24,7 @@ namespace VillageDrill.Models
         [Display(Name = "Last Modified By")]
         public string LastModifiedBy { get; set; }
         [Display(Name = "Last Modified On")]
-        public DateTime LastModifiedDate { get; set; }  
+        public DateTime LastModifiedDate { get; set; }
 
         [ForeignKey("VendorID")]
         public virtual Vendor Vendor { get; set; }
