@@ -24,8 +24,6 @@ namespace VillageDrill.Models.Objects
         [Required]
         [Display(Name = "Quantity Ordered")]
         public int QuantityOrdered { get; set; }
-        [Display(Name = "Date Delivered")]
-        public DateTime DateDelivered { get; set; }
         [Display(Name = "Last Modified by")]
         public string LastModifiedBy { get; set; }
         [Display(Name = "Last Modified on")]
