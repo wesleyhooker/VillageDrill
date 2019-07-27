@@ -21,29 +21,48 @@
 
     <!--HEADER-->
     <header>
-        <nav class="navbar border-bottom box-shadow mb-sm-3 pl-sm-5 pr-sm-5 fixed-top">
-            <ul class="nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle nav" data-toggle="dropdown" href="#"><i class="fas fa-bars fa-2x"></i></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/">Inventory</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-page="Orders">Orders</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-page="Assemble">Assemble</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-page="Vendor">Vendor</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-page="Alerts">Alerts</a>
-                        <a class="dropdown-item" asp-area="Admin" asp-page="Reports">Reports</a>
-                        @if (User.IsInRole(SD.SuperAdminEndUser))
-                        {
-                            <a class="dropdown-item" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
-                        }
-                    </div>
-                </li>
-            </ul>
-
+        <nav class="navbar navbar-light border-bottom box-shadow fixed-top navbar-expand-lg mb-sm-3 pl-sm-5 pr-sm-5">
+            <!--Brand-->
             <a class="navbar-brand ml-sm-3 mr-auto" href="/">
                 <img src="~/images/wholiveslogo.png" alt="WHOlives Logo" style="width:150px;">
             </a>
 
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Collapsible-->
+            <div class="shift navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" href="/">Inventory</a>
+                    </li>
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" asp-area="Admin" asp-page="Orders">Orders</a>
+                    </li>
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" asp-area="Admin" asp-page="Assemble">Assemble</a>
+                    </li>
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" asp-area="Admin" asp-page="Vendor">Vendor</a>
+                    </li>
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" asp-area="Admin" asp-page="Alerts">Alerts</a>
+                    </li>
+                    <li class="nav-item ml-sm-2 mr-sm-2">
+                        <a class="nav-link" asp-area="Admin" asp-page="Reports">Reports</a>
+                    </li>
+                    @if (User.IsInRole(SD.SuperAdminEndUser))
+                    {
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!--Login-->
             <partial name="_LoginPartial" />
         </nav>
     </header>
