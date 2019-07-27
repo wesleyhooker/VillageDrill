@@ -10,33 +10,33 @@
 <div class="tab-content">
     <div  class="tab-pane active">
         <table class="table table-striped table-hover table-borderless">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Address</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody >
-                <tr>
-                    <td>Rocky Mountain</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-                <tr>
-                    <td>Usa Tool and...</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-                <tr>
-                    <td>Other...</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-
+                @foreach(var vendor in Model.Vendors)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => vendor.VendorName)
+                        </td>
+                        <!-- Display vendor adress temporarily, will eventuall have vendor details page to display this -->
+                        <td>
+                            @Html.DisplayFor(m => vendor.VendorAddress)
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Details</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Purchase History</button>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
