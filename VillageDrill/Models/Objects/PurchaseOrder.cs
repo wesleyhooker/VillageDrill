@@ -19,6 +19,9 @@ namespace VillageDrill.Models.Objects
         [Display(Name = "Date Ordered")]
         public DateTime DateOrdered { get; set; }
         [Required]
+        [Display(Name = "Order Status")]
+        public bool Status { get; set; }
+        [Required]
         [Display(Name = "Vendor PO")]
         public string VendorPO { get; set; }
         [Display(Name = "Last Modified By")]

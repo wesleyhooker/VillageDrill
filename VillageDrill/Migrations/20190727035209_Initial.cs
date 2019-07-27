@@ -40,7 +40,9 @@ namespace VillageDrill.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -122,8 +124,8 @@ namespace VillageDrill.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -167,8 +169,8 @@ namespace VillageDrill.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -218,6 +220,7 @@ namespace VillageDrill.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     VendorID = table.Column<int>(nullable: false),
                     DateOrdered = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<bool>(nullable: false),
                     VendorPO = table.Column<string>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
@@ -240,6 +243,7 @@ namespace VillageDrill.Migrations
                     RecievedID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     QuantityReceived = table.Column<int>(nullable: false),
+                    DateReceived = table.Column<DateTime>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false),
@@ -247,9 +251,9 @@ namespace VillageDrill.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecievedItems", x => x.RecievedID);
+                    table.PrimaryKey("PK_ReceivedItems", x => x.RecievedID);
                     table.ForeignKey(
-                        name: "FK_RecievedItems_Vendor_VendorID",
+                        name: "FK_ReceivedItems_Vendor_VendorID",
                         column: x => x.VendorID,
                         principalTable: "Vendor",
                         principalColumn: "VendorID",
@@ -332,7 +336,6 @@ namespace VillageDrill.Migrations
                     VendorSKU = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     QuantityOrdered = table.Column<int>(nullable: false),
-                    DateDelivered = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false),
                     ItemID = table.Column<int>(nullable: false),
@@ -459,7 +462,7 @@ namespace VillageDrill.Migrations
                 column: "VendorID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RecievedItems_VendorID",
+                name: "IX_ReceivedItems_VendorID",
                 table: "ReceivedItems",
                 column: "VendorID");
 
