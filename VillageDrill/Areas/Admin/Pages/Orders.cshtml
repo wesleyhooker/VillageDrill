@@ -47,8 +47,8 @@
                             Delivery Date: 11/2/18
                         </td>
                         <td>Pending</td>
-                        <td><a class="btn btn-primary" asp-page="./OrderDetails">Details</a></td>
-                        <td><a class="btn btn-primary" asp-page="./OrderRecieve">Recieve</a></td>
+                        <td><a class="btn btn-primary" asp-page="./OrderDetails" asp-route-id="@vendor.VendorID">Details</a></td>
+                        <td><a class="btn btn-primary" asp-page="./OrderRecieve" asp-route-id="@vendor.VendorID">Recieve</a></td>
                     </tr>
                 }
                 
