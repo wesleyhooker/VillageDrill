@@ -1,0 +1,34 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.VendorCreateModel
+@{
+    ViewData.Add("Title", "Create Vendor");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Vendor.VendorName" class="col-form-label"></label>
+                <input asp-for="Vendor.VendorName" class="form-control form-control-lg" />
+                <span asp-validation-for="Vendor.VendorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendor.VendorAddress" class="col-form-label"></label>
+                <textarea asp-for="Vendor.VendorAddress" class="form-control form-control-lg" rows="3"></textarea>
+                <span asp-validation-for="Vendor.VendorAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-page="Vendor" class="btn btn-outline-dark">Cancel</a>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

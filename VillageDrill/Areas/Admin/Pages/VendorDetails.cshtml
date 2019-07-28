@@ -1,0 +1,32 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.VendorDetailsModel
+@{
+    ViewData.Add("Title", "Vendor Details");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Vendor.VendorName)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Vendor.VendorName)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Vendor.VendorAddress)
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Vendor.VendorAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Vendor" class="btn btn-outline-dark">Back</a>
+    <a asp-page="./PurchaseHistory" asp-route-id="@Model.Vendor.VendorID" class="btn btn-primary">Purchase History</a>
+</div>

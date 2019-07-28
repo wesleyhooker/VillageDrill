@@ -13,7 +13,6 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Address</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -25,15 +24,11 @@
                         <td>
                             @Html.DisplayFor(m => vendor.VendorName)
                         </td>
-                        <!-- Display vendor adress temporarily, will eventuall have vendor details page to display this -->
                         <td>
-                            @Html.DisplayFor(m => vendor.VendorAddress)
+                            <a asp-page="./VendorDetails" asp-route-id="@vendor.VendorID" class="btn btn-primary">Details</a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary">Details</button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-primary">Purchase History</button>
+                            <a asp-page="./PurchaseHistory" asp-route-id="@vendor.VendorID" class="btn btn-primary">Purchase History</a>
                         </td>
                     </tr>
                 }
@@ -43,7 +38,7 @@
 </div>
 
 <!--Add Button-->
-<a class="float-right" href="#"><i class="fas fa-plus-circle fa-3x"></i></a>
+<a class="float-right" asp-page="./VendorCreate"><i class="fas fa-plus-circle fa-3x"></i></a>
 
 
 <!--Javascript-->
