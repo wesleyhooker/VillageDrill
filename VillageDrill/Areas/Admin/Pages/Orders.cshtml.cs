@@ -13,7 +13,7 @@ namespace VillageDrill.Areas.Admin.Pages
     public class OrdersModel : PageModel
     {
         private IRepositoryWrapper _repositoryWrapper;
-        public List<Vendor> Vendors { get; set; }
+        public List<PurchaseOrder> Orders { get; set; }
 
         public OrdersModel(IRepositoryWrapper repositoryWrapper)
         {
@@ -22,8 +22,8 @@ namespace VillageDrill.Areas.Admin.Pages
 
         public async Task OnGet()
         {
-            var vendors = _repositoryWrapper.Vendor.FindAll();
-            Vendors = await vendors.ToListAsync();
+            var orders = _repositoryWrapper.PurchaseOrder.FindAll();
+            Orders = await orders.ToListAsync();
         }
     }
 }
