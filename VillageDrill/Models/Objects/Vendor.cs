@@ -13,10 +13,10 @@ namespace VillageDrill.Models.Objects
         [Key]
         public int VendorID { get; set; }
         [Required(ErrorMessage = "A Vendor Name is required")]
-        [DisplayName("Vendor Name")]
+        [DisplayName("Name")]
         public string VendorName { get; set; }
         [Required(ErrorMessage = "A Vendor Address is required")]
-        [DisplayName("Vendor Address")]
+        [DisplayName("Address")]
         public string VendorAddress { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
