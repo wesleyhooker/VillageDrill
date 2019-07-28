@@ -13,23 +13,32 @@ namespace VillageDrill.Models.Objects
     {
         [Display(Name = "Purchase Order ID")]
         public int PurchaseOrderID { get; set; }
+
         [Display(Name = "Vendor ID")]
         public int VendorID { get; set; }
+
         [Required]
         [Display(Name = "Date Ordered")]
         public DateTime DateOrdered { get; set; }
+
         [Required]
         [Display(Name = "Order Status")]
         public bool Status { get; set; }
+
         [Required]
         [Display(Name = "Vendor PO")]
         public string VendorPO { get; set; }
+
         [Display(Name = "Last Modified By")]
         public string LastModifiedBy { get; set; }
+
         [Display(Name = "Last Modified On")]
         public DateTime LastModifiedDate { get; set; }
-
+        
         [ForeignKey("VendorID")]
         public virtual Vendor Vendor { get; set; }
+
+        [ForeignKey("OrderItemID")]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

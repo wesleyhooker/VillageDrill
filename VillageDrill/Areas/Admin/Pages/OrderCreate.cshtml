@@ -1,0 +1,44 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.OrderCreateModel
+@{
+    ViewData.Add("Title", "Create Order");
+}
+<link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+<h2>@ViewData["Title"]</h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-md-5">
+                <label asp-for="PurchaseOrder.Vendor" class="col-form-label"></label>
+                <select asp-for="PurchaseOrder.Vendor" class="form-control">
+                    @foreach(var vendor in Model.Vendors)
+                    {
+                        <option>@Html.DisplayName(vendor.VendorName)</option>
+                    }
+                </select>
+                <span asp-validation-for="PurchaseOrder.Vendor" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-5">
+                <label asp-for="PurchaseOrder.DateOrdered"></label>
+                <input asp-for="PurchaseOrder.DateOrdered" name="date" class="form-control" placeholder="MM/DD/YYYY" type="text"/>
+                <span asp-validation-for="PurchaseOrder.DateOrdered" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('form').length>0 ? $('form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
