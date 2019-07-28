@@ -6,10 +6,10 @@
 
 <div class="row text-center">
     <div class="col-6">
-        <td>Vendor: Home Depot</td>
+        <td>Vendor:   @Html.DisplayFor(model => model.Vendor.VendorName)</td>
     </div>
     <div class="col-6">
-        <td>Order Date: 10/13/18</td>
+        <td>Order Date: --/--/--</td>
     </div>
 </div>
 <br />
@@ -35,7 +35,7 @@
 <br />
 <div>
     <button type="button" class="btn btn-success">Recieve</button>
-    <button type="button" class="btn btn-outline-dark">Back</button>
+    <a  class="btn btn-outline-dark" asp-page="./Orders">Back</a>
 
 </div>
 
