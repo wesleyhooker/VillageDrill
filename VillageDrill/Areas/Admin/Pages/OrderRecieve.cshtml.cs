@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace VillageDrill.Areas.Admin.Pages
 {
-    public class OrderDetailsModel : PageModel
+    public class OrderRecieveModel : PageModel
     {
-
         public void OnGet()
         {
         }
