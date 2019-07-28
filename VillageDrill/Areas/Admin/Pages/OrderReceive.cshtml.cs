@@ -13,7 +13,7 @@ namespace VillageDrill.Areas.Admin.Pages
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
 
-        public OrderRecieveModel(IRepositoryWrapper repositoryWrapper)
+        public OrderReceiveModel(IRepositoryWrapper repositoryWrapper)
         {
             _repositoryWrapper = repositoryWrapper;
         }
