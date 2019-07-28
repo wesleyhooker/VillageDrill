@@ -17,74 +17,104 @@
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
-<body>
+
+
+<body >
 
     <!--HEADER-->
     <header>
-        <nav class="navbar navbar-light border-bottom box-shadow fixed-top navbar-expand-lg mb-sm-3 pl-sm-5 pr-sm-5">
-            <!--Brand-->
-            <a class="navbar-brand ml-sm-3 mr-auto" href="/">
-                <img src="~/images/wholiveslogo.png" alt="WHOlives Logo" style="width:150px;">
-            </a>
+        <nav class="navbar navbar-light border-bottom box-shadow fixed-top navbar-expand-lg mb-sm-3">
 
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="container">
+                <!--Brand-->
+                <a class="navbar-brand mr-auto" href="/">
+                    <img src="~/images/wholiveslogo.png" alt="WHOlives Logo" style="width:160px;">
+                </a>
 
-            <!--Collapsible-->
-            <div class="shift navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" href="/">Inventory</a>
-                    </li>
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" asp-area="Admin" asp-page="Orders">Orders</a>
-                    </li>
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" asp-area="Admin" asp-page="Assemble">Assemble</a>
-                    </li>
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" asp-area="Admin" asp-page="Vendor">Vendor</a>
-                    </li>
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" asp-area="Admin" asp-page="Alerts">Alerts</a>
-                    </li>
-                    <li class="nav-item ml-sm-2 mr-sm-2">
-                        <a class="nav-link" asp-area="Admin" asp-page="Reports">Reports</a>
-                    </li>
-                    @if (User.IsInRole(SD.SuperAdminEndUser))
-                    {
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Collapsible-->
+                <div class="shift navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item ml-sm-2 mr-sm-2">
-                            <a class="nav-link" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
+                            <a class="nav-link" href="/">Inventory</a>
                         </li>
-                    }
-                </ul>
-            </div>
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="Admin" asp-page="Orders">Orders</a>
+                        </li>
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="Admin" asp-page="Assemble">Assemble</a>
+                        </li>
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="Admin" asp-page="Vendor">Vendor</a>
+                        </li>
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="Admin" asp-page="Alerts">Alerts</a>
+                        </li>
+                        <li class="nav-item ml-sm-2 mr-sm-2">
+                            <a class="nav-link" asp-area="Admin" asp-page="Reports">Reports</a>
+                        </li>
+                        @if (User.IsInRole(SD.SuperAdminEndUser))
+                        {
+                            <li class="nav-item ml-sm-2 mr-sm-2">
+                                <a class="nav-link" asp-area="SuperAdmin" asp-page="Users">Manage Users</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
 
-            <!--Login-->
-            <partial name="_LoginPartial" />
+                <!--Login-->
+                <partial name="_LoginPartial" />
+            </div>
         </nav>
     </header>
 
-    <!--BODY-->
-    <div class="container-fluid" style="margin: 100px 0px 0px 0px;">
-        <div class="row">
-            <div class="col-xl-1">
+    <!--BODY--> 
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                <h1 class="">@ViewData["Title"]</h1>
+        <!--Search Bar-->
+        <form class="form-inline" action="">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-theme"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Filter Results" id="searchInput">
             </div>
-            <div class="col-xl-10">
+        </form>
+                </div>
+    </div>
+
+
+    <div class="container pt-4 pb-4">
+                <partial name="_CookieConsentPartial" />
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+</div>
+    <!--BODY container fluid-->
+    <!--
+    <div class="container-fluid border" style="margin: 100px 0px 0px 0px;">
+        <div class="row">
+            <div class="col-xl-1 border">
+            </div>
+            <div class="col-xl-10 border">
                 <partial name="_CookieConsentPartial" />
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
             </div>
-            <div class="col-xl-1">
+            <div class="col-xl-1 border">
             </div>
         </div>
     </div>
+        -->
 
     <!--FOOTER-->
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer small">
         <div class="container">
             &copy; 2019 - VillageDrill
         </div>
