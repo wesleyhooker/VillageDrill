@@ -27,19 +27,19 @@
                 <tr>
                     <td>B&B Supply Inc - 11/14/18 (Purchased)</td>
                     <td><a class="btn btn-success" asp-page="">Reconcile</a></td>
-                    <td><a class="btn btn-outline-dark" asp-page="">View Details</a></td>
-                    
+                    <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
+
                 </tr>
                 <tr>
                     <td>Afican Heartwood Project - 10/20/18 (Sale)</td>
                     <td><a class="btn btn-success" asp-page="">Reconcile</a></td>
-                    <td><a class="btn btn-outline-dark" asp-page="">View Details</a></td>
+                    <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
 
                 </tr>
                 <tr>
                     <td>Home Depot - 10/17/18 (Purchase)</td>
                     <td><a class="btn btn-success" asp-page="">Reconcile</a></td>
-                    <td><a class="btn btn-outline-dark" asp-page="">View Details</a></td>
+                    <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
 
 
                 </tr>
@@ -54,20 +54,66 @@
                     <td>1/4" x 15' Wire Rope</td>
                     <td><a class="btn btn-success" asp-page="">Reorder</a></td>
                     <td><a class="btn btn-outline-dark" asp-page="">Dissmiss</a></td>
-                    <td><a class="btn btn-outline-dark" asp-page="">View Details</a></td>
+                    <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
                 </tr>
                 <tr>
                     <td>Swivel Bearing Cup</td>
                     <td><a class="btn btn-success" asp-page="">Reconcile</a></td>
                     <td><a class="btn btn-outline-dark" asp-page="">Dissmiss</a></td>
-                    <td><a class="btn btn-outline-dark" asp-page="">View Details</a></td>
+                    <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="viewDetails" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty Recieved</th>
+                            <th>Date Recieved</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" asp-page="./OrderDetails">Go To Order</a>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 
 <!--Javascript-->
