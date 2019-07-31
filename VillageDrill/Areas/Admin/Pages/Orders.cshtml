@@ -27,33 +27,38 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
+                    <th>Delivered</th>
                     <th>Vendor</th>
                     <th>Date Ordered</th>
-                    <th>Delivered</th>
-                    <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody id="searchTable">
-                @foreach(var order in Model.Orders)
+                @foreach (var order in Model.Orders)
                 {
                 <tr>
+                    @if (order.Status == true)
+                    {
+                        <td><i class="far fa-check-square text-info fa-2x"></i></td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
                     <td>
                         @Html.DisplayFor(m => order.Vendor.VendorName)
                     </td>
                     <td>
                         @Html.DisplayFor(m => order.DateOrdered)
                     </td>
-                    <td>@Html.DisplayFor(m => order.Status)</td>
-                    <td><a class="btn btn-primary" asp-page="./OrderDetails" asp-route-id="@order.PurchaseOrderID">Details</a></td>
-                    @if (!order.Status)
-                    {
-                        <!-- Show receive button for pending orders only -->
-                        <td><a class="btn btn-primary" asp-page="./OrderReceive" asp-route-id="@order.PurchaseOrderID">Receive</a></td>
-                    } else
-                    {
-                        <td></td>
-                    }
+                    <td>
+                        <a class="btn btn-outline-primary mr-2" asp-page="./OrderDetails" asp-route-id="@order.PurchaseOrderID"><i class="fas fa-info"></i></a>
+                        @if (!order.Status)
+                        {
+                            <!-- Show receive button for pending orders only -->
+                            <a class="btn btn-primary" asp-page="./OrderReceive" asp-route-id="@order.PurchaseOrderID">Receive</a>
+                        }
+                    </td>
                 </tr>
                 }
             </tbody>
@@ -107,7 +112,7 @@
                 @foreach (var order in Model.Orders)
                 {
                     <!-- Order has been received -->
-                    @if(order.Status)
+                    @if (order.Status)
                     {
                         <tr>
                             <td>
@@ -119,7 +124,7 @@
                             <td>@Html.DisplayFor(m => order.Status)</td>
                             <td><a class="btn btn-primary" asp-page="./OrderDetails" asp-route-id="@order.PurchaseOrderID">Details</a></td>
                         </tr>
-                    }                    
+                    }
                 }
             </tbody>
         </table>
