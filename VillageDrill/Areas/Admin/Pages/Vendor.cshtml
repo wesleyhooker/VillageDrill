@@ -12,7 +12,6 @@
                 <tr>
                     <th>Name</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody id="searchTable">
@@ -23,9 +22,7 @@
                             @Html.DisplayFor(m => vendor.VendorName)
                         </td>
                         <td>
-                            <a asp-page="./VendorDetails" asp-route-id="@vendor.VendorID" class="btn btn-primary">Details</a>
-                        </td>
-                        <td>
+                            <a asp-page="./VendorDetails" asp-route-id="@vendor.VendorID" class="btn btn-outline-primary mr-2"><i class="fas fa-info"></i></a>
                             <a asp-page="./PurchaseHistory" asp-route-id="@vendor.VendorID" class="btn btn-primary">Purchase History</a>
                         </td>
                     </tr>
