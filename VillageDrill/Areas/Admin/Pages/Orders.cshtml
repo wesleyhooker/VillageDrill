@@ -24,7 +24,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
     <div id="allTab" class="tab-pane active">
-        <table class="table table-borderless">
+        <table class="table table-borderless data-table">
             <thead>
                 <tr>
                     <th>Delivered</th>
@@ -33,7 +33,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="searchTable">
+            <tbody>
                 @foreach (var order in Model.Orders)
                 {
                 <tr>
@@ -65,7 +65,7 @@
         </table>
     </div>
     <div id="pendingTab" class="tab-pane fade">
-        <table class="table table-borderless">
+        <table class="table table-borderless data-table">
             <thead>
                 <tr>
                     <th>Vendor</th>
@@ -75,7 +75,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="searchTable">
+            <tbody>
                 @foreach (var order in Model.Orders)
                 {
                     <!-- Order has not been received -->
@@ -98,7 +98,7 @@
         </table>
     </div>
     <div id="recievedTab" class="tab-pane fade">
-        <table class="table table-borderless">
+        <table class="table table-borderless data-table">
             <thead>
                 <tr>
                     <th>Vendor</th>
@@ -108,7 +108,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="searchTable">
+            <tbody>
                 @foreach (var order in Model.Orders)
                 {
                     <!-- Order has been received -->

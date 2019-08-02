@@ -15,8 +15,9 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 
 
@@ -74,21 +75,13 @@
     </header>
 
     <!--BODY-->
-    @if((ViewData["includeTitle"]) == "true"){
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="">@ViewData["Title"]</h1>
-            <!--Search Bar-->
-            <form class="form-inline" action="">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-theme"><i class="fas fa-search"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Filter Results" id="searchInput">
-                </div>
-            </form>
+    @if ((ViewData["includeTitle"]) == "true")
+    {
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="">@ViewData["Title"]</h1>
+            </div>
         </div>
-    </div>
     }
 
     <div class="container pt-3 pb-3">
@@ -125,6 +118,7 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

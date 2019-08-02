@@ -9,4 +9,10 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
+    $('table.data-table').DataTable( {
+"paging":   true,
+"ordering": true,
+"info":     false
+} );
 });
