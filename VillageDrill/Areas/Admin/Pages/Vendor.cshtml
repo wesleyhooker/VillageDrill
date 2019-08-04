@@ -2,48 +2,38 @@
 @model VillageDrill.Areas.Admin.Pages.VendorModel
 @{
     ViewData.Add("Title", "Vendor");
+    ViewData.Add("includeTitle", "true");
 }
-
-<!--Title-->
-<h2>@ViewData["Title"]</h2>
 
 <div class="tab-content">
     <div  class="tab-pane active">
-        <table class="table table-striped table-hover table-borderless">
-            <thead class="thead-dark">
+        <table class="table table-borderless data-table">
+            <thead>
                 <tr>
                     <th>Name</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
-            <tbody >
-                <tr>
-                    <td>Rocky Mountain</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-                <tr>
-                    <td>Usa Tool and...</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-                <tr>
-                    <td>Other...</td>
-
-                    <td><a href="#detailsTab">Details</a></td>
-                    <td><a href="#purchasehistoryTab">Purchase History</a></td>
-                </tr>
-
+            <tbody>
+                @foreach(var vendor in Model.Vendors)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => vendor.VendorName)
+                        </td>
+                        <td>
+                            <a asp-page="./VendorDetails" asp-route-id="@vendor.VendorID" class="btn btn-outline-primary mr-2"><i class="fas fa-info"></i></a>
+                            <a asp-page="./PurchaseHistory" asp-route-id="@vendor.VendorID" class="btn btn-primary">Purchase History</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
 </div>
 
 <!--Add Button-->
-<a class="float-right" href="#"><i class="fas fa-plus-circle fa-3x"></i></a>
+<a class="float-right" asp-page="./VendorCreate"><i class="fas fa-plus-circle fa-3x"></i></a>
 
 
 <!--Javascript-->

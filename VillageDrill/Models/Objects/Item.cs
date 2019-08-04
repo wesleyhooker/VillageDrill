@@ -50,5 +50,8 @@ namespace VillageDrill.Models.Objects
 
         [ForeignKey("MeasureID")]
         public virtual Measures Measures { get; set; }
+
+        [ForeignKey("OrderItemId")]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

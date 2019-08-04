@@ -9,6 +9,7 @@ namespace VillageDrill.Areas.Admin.Pages
 {
     public class OrderDetailsModel : PageModel
     {
+
         public void OnGet()
         {
         }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VillageDrill.Data;
 
 namespace VillageDrill.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190728185114_UpdateNavigation")]
+    partial class UpdateNavigation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,11 +143,9 @@ namespace VillageDrill.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -176,11 +176,9 @@ namespace VillageDrill.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 
@@ -189,7 +187,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.AssemblyHistory", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.AssemblyHistory", b =>
                 {
                     b.Property<int>("AssemblyHistoryID")
                         .ValueGeneratedOnAdd()
@@ -214,7 +212,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("AssemblyHistory");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.AssemblyRecipe", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.AssemblyRecipe", b =>
                 {
                     b.Property<int>("AssemblyRecipeID")
                         .ValueGeneratedOnAdd()
@@ -229,7 +227,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("AssemblyRecipe");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.InventoryLog", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.InventoryLog", b =>
                 {
                     b.Property<int>("LogID")
                         .ValueGeneratedOnAdd()
@@ -254,7 +252,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("InventoryLog");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.Item", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.Item", b =>
                 {
                     b.Property<int>("ItemID")
                         .ValueGeneratedOnAdd()
@@ -291,7 +289,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("Item");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.Measures", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.Measures", b =>
                 {
                     b.Property<int>("MeasureID")
                         .ValueGeneratedOnAdd()
@@ -305,19 +303,17 @@ namespace VillageDrill.Migrations
                     b.ToTable("Measures");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.OrderItem", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.OrderItem", b =>
                 {
-                    b.Property<int>("OrderItemID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateDelivered");
+                    b.Property<int>("OrderItemID");
 
                     b.Property<int>("ItemID");
 
                     b.Property<string>("LastModifiedBy");
 
                     b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<int?>("OrderItemId");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -333,22 +329,24 @@ namespace VillageDrill.Migrations
 
                     b.HasIndex("ItemID");
 
+                    b.HasIndex("OrderItemId");
+
                     b.HasIndex("PurchaseOrderID");
 
                     b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.PurchaseOrder", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.PurchaseOrder", b =>
                 {
-                    b.Property<int>("PurchaseOrderID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("PurchaseOrderID");
 
                     b.Property<DateTime>("DateOrdered");
 
                     b.Property<string>("LastModifiedBy");
 
                     b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<bool>("Status");
 
                     b.Property<int>("VendorID");
 
@@ -362,11 +360,13 @@ namespace VillageDrill.Migrations
                     b.ToTable("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.ReceivedItems", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.ReceivedItems", b =>
                 {
                     b.Property<int>("RecievedID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateReceived");
 
                     b.Property<string>("LastModifiedBy");
 
@@ -385,7 +385,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("ReceivedItems");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.RecipeLine", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.RecipeLine", b =>
                 {
                     b.Property<int>("RecipeLineID")
                         .ValueGeneratedOnAdd()
@@ -410,7 +410,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("RecipeLine");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.Vendor", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.Vendor", b =>
                 {
                     b.Property<int>("VendorID")
                         .ValueGeneratedOnAdd()
@@ -431,7 +431,7 @@ namespace VillageDrill.Migrations
                     b.ToTable("Vendor");
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.ApplicationUser", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -485,75 +485,90 @@ namespace VillageDrill.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.AssemblyHistory", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.AssemblyHistory", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Item", "Item")
+                    b.HasOne("VillageDrill.Models.Objects.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.AssemblyRecipe", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.AssemblyRecipe", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Item", "Item")
+                    b.HasOne("VillageDrill.Models.Objects.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.InventoryLog", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.InventoryLog", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Item", "Item")
+                    b.HasOne("VillageDrill.Models.Objects.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.Item", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.Item", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Measures", "Measures")
+                    b.HasOne("VillageDrill.Models.Objects.Measures", "Measures")
                         .WithMany()
                         .HasForeignKey("MeasureID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.OrderItem", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.OrderItem", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Item", "Item")
+                    b.HasOne("VillageDrill.Models.Objects.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("VillageDrill.Models.PurchaseOrder", "PurchaseOrder")
+                    b.HasOne("VillageDrill.Models.Objects.PurchaseOrder")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderItemID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("VillageDrill.Models.Objects.Item")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderItemId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("VillageDrill.Models.Objects.PurchaseOrder", "PurchaseOrder")
                         .WithMany()
                         .HasForeignKey("PurchaseOrderID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.PurchaseOrder", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.PurchaseOrder", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Vendor", "Vendor")
+                    b.HasOne("VillageDrill.Models.Objects.Vendor")
+                        .WithMany("PurchaseOrders")
+                        .HasForeignKey("PurchaseOrderID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("VillageDrill.Models.Objects.Vendor", "Vendor")
                         .WithMany()
                         .HasForeignKey("VendorID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.ReceivedItems", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.ReceivedItems", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Vendor", "Vendor")
+                    b.HasOne("VillageDrill.Models.Objects.Vendor", "Vendor")
                         .WithMany()
                         .HasForeignKey("VendorID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("VillageDrill.Models.RecipeLine", b =>
+            modelBuilder.Entity("VillageDrill.Models.Objects.RecipeLine", b =>
                 {
-                    b.HasOne("VillageDrill.Models.AssemblyRecipe", "AssemblyRecipe")
+                    b.HasOne("VillageDrill.Models.Objects.AssemblyRecipe", "AssemblyRecipe")
                         .WithMany()
                         .HasForeignKey("AssemblyRecipeID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("VillageDrill.Models.Item", "Item")
+                    b.HasOne("VillageDrill.Models.Objects.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);

@@ -1,0 +1,42 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.OrderReceiveModel
+@{
+}
+
+
+<div class="row text-center">
+    <div class="col-6">
+        <td>Vendor:   @Html.DisplayFor(model => model.Vendor.VendorName)</td>
+    </div>
+    <div class="col-6">
+        <td>Order Date: --/--/--</td>
+    </div>
+</div>
+<br />
+<br />
+<div>
+    <input type="checkbox" class="text-center" id="selectAll" /> Select All <br />
+    <label>---------------------------------------------</label> <br />
+    <div>
+        <input type="checkbox" class="text-center" id="item1"> Item 1
+        <input type="number" name="quantity" min="0" max="50" style="margin-left:120px">
+    </div><br />
+    <div>
+        <input type="checkbox" class="text-center" id="item2"> Item 2
+        <input type="number" name="quantity" min="0" max="50" style="margin-left:120px">
+    </div><br />
+    <div>
+        <input type="checkbox" class="text-center" id="item3"> Item 3
+        <input type="number" name="quantity" min="0" max="50" style="margin-left:120px">
+    </div>
+
+</div>
+<br />
+<br />
+<div>
+    <button type="button" class="btn btn-success">Recieve</button>
+    <a  class="btn btn-outline-dark" asp-page="./Orders">Back</a>
+
+</div>
+
+

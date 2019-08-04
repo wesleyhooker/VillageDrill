@@ -15,6 +15,8 @@ namespace VillageDrill.Models.Objects
         [DisplayName("Quantity Received")]
         [Required(ErrorMessage = "A Quantity Received is required")]
         public int QuantityReceived { get; set; }
+        [DisplayName("Date Received")]
+        public DateTime DateReceived { get; set; }
         public string Notes { get; set; }
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
