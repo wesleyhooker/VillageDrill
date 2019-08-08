@@ -274,7 +274,7 @@ namespace VillageDrill.Migrations
                     b.Property<decimal>("MeasureAmnt")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("MeasureID");
+                    b.Property<int?>("MeasureID");
 
                     b.Property<int>("OnHandQty");
 
@@ -303,20 +303,20 @@ namespace VillageDrill.Migrations
 
             modelBuilder.Entity("VillageDrill.Models.Objects.OrderItem", b =>
                 {
-                    b.Property<int>("OrderItemID");
+                    b.Property<int>("OrderItemID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ItemID");
+                    b.Property<int?>("ItemID");
 
                     b.Property<string>("LastModifiedBy");
 
                     b.Property<DateTime>("LastModifiedDate");
 
-                    b.Property<int?>("OrderItemId");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PurchaseOrderID");
+                    b.Property<int?>("PurchaseOrderID");
 
                     b.Property<int>("QuantityOrdered");
 
@@ -326,8 +326,6 @@ namespace VillageDrill.Migrations
                     b.HasKey("OrderItemID");
 
                     b.HasIndex("ItemID");
-
-                    b.HasIndex("OrderItemId");
 
                     b.HasIndex("PurchaseOrderID");
 
@@ -339,6 +337,8 @@ namespace VillageDrill.Migrations
                     b.Property<int>("PurchaseOrderID");
 
                     b.Property<DateTime>("DateOrdered");
+
+                    b.Property<DateTime>("EstimatedDelivery");
 
                     b.Property<string>("LastModifiedBy");
 
@@ -352,8 +352,6 @@ namespace VillageDrill.Migrations
                         .IsRequired();
 
                     b.HasKey("PurchaseOrderID");
-
-                    b.HasIndex("VendorID");
 
                     b.ToTable("PurchaseOrder");
                 });
@@ -417,6 +415,8 @@ namespace VillageDrill.Migrations
                     b.Property<string>("LastModifiedBy");
 
                     b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<string>("VendorAddress")
                         .IsRequired();
@@ -509,7 +509,7 @@ namespace VillageDrill.Migrations
 
             modelBuilder.Entity("VillageDrill.Models.Objects.Item", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Objects.Measures", "Measures")
+                    b.HasOne("VillageDrill.Models.Objects.Measures", "Measure")
                         .WithMany()
                         .HasForeignKey("MeasureID")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -518,36 +518,21 @@ namespace VillageDrill.Migrations
             modelBuilder.Entity("VillageDrill.Models.Objects.OrderItem", b =>
                 {
                     b.HasOne("VillageDrill.Models.Objects.Item", "Item")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("ItemID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("VillageDrill.Models.Objects.PurchaseOrder")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderItemID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("VillageDrill.Models.Objects.Item")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderItemId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("VillageDrill.Models.Objects.PurchaseOrder", "PurchaseOrder")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("PurchaseOrderID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("VillageDrill.Models.Objects.PurchaseOrder", b =>
                 {
-                    b.HasOne("VillageDrill.Models.Objects.Vendor")
+                    b.HasOne("VillageDrill.Models.Objects.Vendor", "Vendor")
                         .WithMany("PurchaseOrders")
                         .HasForeignKey("PurchaseOrderID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("VillageDrill.Models.Objects.Vendor", "Vendor")
-                        .WithMany()
-                        .HasForeignKey("VendorID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

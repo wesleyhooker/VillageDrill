@@ -21,6 +21,9 @@ namespace VillageDrill.Models.Objects
         [Display(Name = "Date Ordered")]
         public DateTime DateOrdered { get; set; }
 
+        [Display(Name = "Est. Delivery")]
+        public DateTime EstimatedDelivery { get; set; }
+
         [Required]
         [Display(Name = "Order Status")]
         public bool Status { get; set; }
@@ -35,10 +38,8 @@ namespace VillageDrill.Models.Objects
         [Display(Name = "Last Modified On")]
         public DateTime LastModifiedDate { get; set; }
         
-        [ForeignKey("VendorID")]
         public virtual Vendor Vendor { get; set; }
 
-        [ForeignKey("OrderItemID")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }
