@@ -1,20 +1,122 @@
 ﻿@page
 @model VillageDrill.Areas.Admin.Pages.VendorPurchaseHistoryModel
 @{
-    
+
 }
 
-    <form class="row">
+<div>
+    <label>Rocky Mountain Purchase History</label>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <table class="table table-borderless ">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Order Date</th>
+                        <th>Total Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Order 1</td>
+                        <td>--/--/--</td>
+                        <td>.....</td>
+                        <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>Order 2</td>
+                        <td>--/--/--</td>
+                        <td>.....</td>
+                        <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
+                    </tr>
+                    <tr>
+                        <td>Order 3</td>
+                        <td>--/--/--</td>
+                        <td>.....</td>
+                        <td><button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#viewDetails">View Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Vendor" class="btn btn-outline-dark">Back</a>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="viewDetails" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Part Name</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                        <tr>
+                            <td>....</td>
+                            <td>....</td>
+                            <td>....</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".nav-tabs a").click(function () {
+            $(this).tab('show');
+        });
+    });
+</script>
+
+@*<form class="row">
         <div class="col-md-6">
             <label>Rocky Mountain Purchase History</label><br /><br />
             <a class="btn btn-lg btn-outline-dark text-center" style="margin-bottom:12px" href="">
-                Order 1 --/--/--   
+                Order 1 --/--/--
             </a><br />
             <a class="btn btn-lg btn-outline-dark" style="margin-bottom:12px" href="">
                 Order 2 --/--/--
             </a><br />
             <a class="btn btn-lg btn-outline-dark" style="margin-bottom:12px" href="">
-                Order 3 --/--/-- 
+                Order 3 --/--/--
             </a><br />
         </div>
         <div class="col-md-6">
@@ -52,5 +154,5 @@
     </form>
     <div class="text-center">
         <a asp-page="./Vendor" class="btn btn-outline-dark">Back</a>
-        
-    </div>
+
+    </div>*@
