@@ -21,6 +21,10 @@ namespace VillageDrill.Areas.Admin.Pages
 
         public List<Vendor> Vendors { get; set; }
 
+        public List<Vendor> Sorted { get; set; }
+
+        public List<Item> Items { get; set; }
+
         [BindProperty]
         public PurchaseOrder PurchaseOrder { get; set; }
 
@@ -28,6 +32,9 @@ namespace VillageDrill.Areas.Admin.Pages
         {
             var vendors = _repositoryWrapper.Vendor.FindAll();
             Vendors = await vendors.ToListAsync();
+            Sorted = Vendors.OrderBy(x => x.VendorName).ToList();
+            var items = _repositoryWrapper.Item.FindAll();
+            Items = await items.ToListAsync();
         }
 
         public IActionResult OnPost()

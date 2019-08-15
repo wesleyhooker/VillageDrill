@@ -3,42 +3,53 @@
 @{
     ViewData.Add("Title", "Create Order");
 }
-<link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
 <h2>@ViewData["Title"]</h2>
 <hr />
 <div class="row">
     <div class="col-md-12">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-6">
                 <label asp-for="PurchaseOrder.Vendor" class="col-form-label"></label>
                 <select asp-for="PurchaseOrder.Vendor" class="form-control">
-                    @foreach(var vendor in Model.Vendors)
+                    @foreach (var vendor in Model.Sorted)
                     {
-                        <option>@Html.DisplayName(vendor.VendorName)</option>
+                        <option>@vendor.VendorName</option>
                     }
                 </select>
                 <span asp-validation-for="PurchaseOrder.Vendor" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-5">
-                <label asp-for="PurchaseOrder.DateOrdered"></label>
-                <input asp-for="PurchaseOrder.DateOrdered" name="date" class="form-control" placeholder="MM/DD/YYYY" type="text"/>
-                <span asp-validation-for="PurchaseOrder.DateOrdered" class="text-danger"></span>
+            <div class="form-row col-md-6">
+                <div class="form-group col-md-6">
+                    <label asp-for="PurchaseOrder.DateOrdered"></label>
+                    <input asp-for="PurchaseOrder.DateOrdered" class="form-control" type="date" />
+                    <span asp-validation-for="PurchaseOrder.DateOrdered" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PurchaseOrder.EstimatedDelivery"></label>
+                    <input asp-for="PurchaseOrder.EstimatedDelivery" class="form-control" type="date" />
+                    <span asp-validation-for="PurchaseOrder.EstimatedDelivery" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="PurchaseOrder.OrderItems" class="col-form-label">Part</label>
+                <select asp-for="PurchaseOrder.OrderItems" class="form-control">
+                    @foreach (var item in Model.Items)
+                    {
+                        <option>@item.ItemName</option>
+                    }
+                </select>
+                @*<span asp-validation-for="PurchaseOrder.OrderItems" class="text-danger"></span>*@
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="PurchaseOrder.OrderItems.FirstOrDefault().QuantityOrdered"></label>
+                <input asp-for="PurchaseOrder.OrderItems.FirstOrDefault().QuantityOrdered" type="number" />
+                <span asp-validation-for="PurchaseOrder.OrderItems.FirstOrDefault().QuantityOrdered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-outline-dark">Add Part</button>
+                <input type="submit" value="Create Order" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('form').length>0 ? $('form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input.datepicker(options);
-    })
-</script>

@@ -70,6 +70,7 @@ namespace VillageDrill.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     VendorName = table.Column<string>(nullable: false),
                     VendorAddress = table.Column<string>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: true),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
@@ -199,14 +200,14 @@ namespace VillageDrill.Migrations
                     MeasureAmnt = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false),
-                    MeasureID = table.Column<int>(nullable: false)
+                    MeasuresMeasureID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Item", x => x.ItemID);
                     table.ForeignKey(
-                        name: "FK_Item_Measures_MeasureID",
-                        column: x => x.MeasureID,
+                        name: "FK_Item_Measures_MeasuresMeasureID",
+                        column: x => x.MeasuresMeasureID,
                         principalTable: "Measures",
                         principalColumn: "MeasureID",
                         onDelete: ReferentialAction.Restrict);
@@ -216,10 +217,10 @@ namespace VillageDrill.Migrations
                 name: "PurchaseOrder",
                 columns: table => new
                 {
-                    PurchaseOrderID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    PurchaseOrderID = table.Column<int>(nullable: false),
                     VendorID = table.Column<int>(nullable: false),
                     DateOrdered = table.Column<DateTime>(nullable: false),
+                    EstimatedDelivery = table.Column<DateTime>(nullable: false),
                     Status = table.Column<bool>(nullable: false),
                     VendorPO = table.Column<string>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
@@ -229,8 +230,8 @@ namespace VillageDrill.Migrations
                 {
                     table.PrimaryKey("PK_PurchaseOrder", x => x.PurchaseOrderID);
                     table.ForeignKey(
-                        name: "FK_PurchaseOrder_Vendor_VendorID",
-                        column: x => x.VendorID,
+                        name: "FK_PurchaseOrder_Vendor_PurchaseOrderID",
+                        column: x => x.PurchaseOrderID,
                         principalTable: "Vendor",
                         principalColumn: "VendorID",
                         onDelete: ReferentialAction.Restrict);
@@ -338,8 +339,8 @@ namespace VillageDrill.Migrations
                     QuantityOrdered = table.Column<int>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
                     LastModifiedDate = table.Column<DateTime>(nullable: false),
-                    ItemID = table.Column<int>(nullable: false),
-                    PurchaseOrderID = table.Column<int>(nullable: false)
+                    ItemID = table.Column<int>(nullable: true),
+                    PurchaseOrderID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -442,9 +443,9 @@ namespace VillageDrill.Migrations
                 column: "ItemID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Item_MeasureID",
+                name: "IX_Item_MeasuresMeasureID",
                 table: "Item",
-                column: "MeasureID");
+                column: "MeasuresMeasureID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_ItemID",
@@ -455,11 +456,6 @@ namespace VillageDrill.Migrations
                 name: "IX_OrderItem_PurchaseOrderID",
                 table: "OrderItem",
                 column: "PurchaseOrderID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PurchaseOrder_VendorID",
-                table: "PurchaseOrder",
-                column: "VendorID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReceivedItems_VendorID",

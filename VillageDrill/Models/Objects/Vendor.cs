@@ -22,6 +22,9 @@ namespace VillageDrill.Models.Objects
         [DisplayName("Address")]
         public string VendorAddress { get; set; }
 
+        [DisplayName("Phone Number")]
+        public string PhoneNumber { get; set; }
+
         [DisplayName("Last Modified by")]
         public string LastModifiedBy { get; set; }
 
