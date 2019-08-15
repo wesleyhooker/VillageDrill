@@ -1,0 +1,42 @@
+﻿@page
+@model VillageDrill.Areas.Admin.Pages.CreatePartModel
+@{
+    ViewData["Title"] = "Create Part";
+}
+
+<form method="post">
+    <div>
+        <label asp-for="CreatedItem.ItemName"></label>
+        <input asp-for="CreatedItem.ItemName" class="form-control" />
+        <span asp-validation-for="CreatedItem.ItemName" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="CreatedItem.Description"></label>
+        <textarea asp-for="CreatedItem.Description"></textarea>
+        <span asp-validation-for="CreatedItem.Description" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CreatedItem.OnHandQty"></label>
+        @Html.EditorFor(model => model.CreatedItem.OnHandQty, new { htmlAttributes = new { type = "number", min = "0", @class = "form-control" } })
+        <span asp-validation-for="CreatedItem.OnHandQty" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="CreatedItem.ListRetailCost"></label>
+        <input asp-for="CreatedItem.ListRetailCost" class="form-control" />
+        <span asp-validation-for="CreatedItem.ListRetailCost" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CreatedItem.Measures"></label>
+        <select name="U/M" asp-for="CreatedItem.Measures" asp-items="@Model.UnitMeasurementOptions" class="form-control"></select>
+    </div>
+
+    <div>
+        <label>Assembly Components:</label>
+        <br />
+        <!--Add Assembly parts Button-->
+        <a class="float-left shadow-sm rounded-circle" asp-page="./AddAssemblyPart"><i class="fas fa-plus-circle fa-3x"></i></a>
+    </div>
+</form>
+
