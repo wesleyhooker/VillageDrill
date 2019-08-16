@@ -12,6 +12,7 @@ namespace VillageDrill.Areas.Admin.Pages
 {
     public class AddAssemblyPartModel : PageModel
     {
+        //Holds needed data to identify the selected part
         public struct SelectedPart
         {
             public bool isSelected;
@@ -21,9 +22,19 @@ namespace VillageDrill.Areas.Admin.Pages
         }
 
         private IRepositoryWrapper _repositoryWrapper;
-        public List<Item> Items { get; set; }
 
+        /// <summary>
+        /// Holds the list of items from the database
+        /// </summary>
+        public List<Item> Items { get; set; }
+        /// <summary>
+        /// holds a selected item from the table
+        /// </summary>
         public SelectedPart AssemblyPart;
+        /// <summary>
+        /// holds a list of selected items from the table
+        /// </summary>
+        public List<SelectedPart> SelectedParts;
 
 
         public AddAssemblyPartModel(IRepositoryWrapper repositoryWrapper)
