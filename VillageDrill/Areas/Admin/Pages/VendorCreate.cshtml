@@ -22,6 +22,11 @@
                 <span asp-validation-for="Vendor.VendorAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Vendor.PhoneNumber" class="col-form-label"></label>
+                <input asp-for="Vendor.PhoneNumber" class="form-control form-control-lg" />
+                <span asp-validation-for="Vendor.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <a asp-page="Vendor" class="btn btn-outline-dark">Cancel</a>
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
