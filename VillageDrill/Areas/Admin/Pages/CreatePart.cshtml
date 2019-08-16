@@ -5,39 +5,50 @@
 }
 
 <form method="post">
-    <div>
-        <label asp-for="CreatedItem.ItemName"></label>
-        <input asp-for="CreatedItem.ItemName" class="form-control" />
+    <div class="row">
+        <label asp-for="CreatedItem.ItemName" class="col-2"></label>
+        <input asp-for="CreatedItem.ItemName" class="form-control col-4" />
         <span asp-validation-for="CreatedItem.ItemName" class="text-danger"></span>
     </div>
+    <br />
 
-    <div>
-        <label asp-for="CreatedItem.Description"></label>
-        <textarea asp-for="CreatedItem.Description"></textarea>
+    <div class="row">
+        <label asp-for="CreatedItem.Description" class="col-2"></label>
+        <textarea asp-for="CreatedItem.Description " class="col-4"></textarea>
         <span asp-validation-for="CreatedItem.Description" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="CreatedItem.OnHandQty"></label>
-        @Html.EditorFor(model => model.CreatedItem.OnHandQty, new { htmlAttributes = new { type = "number", min = "0", @class = "form-control" } })
+    <br />
+    <div class="row">
+        <label asp-for="CreatedItem.OnHandQty" class="col-2"></label>
+        @Html.EditorFor(model => model.CreatedItem.OnHandQty, new { htmlAttributes = new { type = "number", min = "0", @class = "form-control col-2" } })
         <span asp-validation-for="CreatedItem.OnHandQty" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="CreatedItem.ListRetailCost"></label>
-        <input asp-for="CreatedItem.ListRetailCost" class="form-control" />
+    <br />
+
+    <div class="row">
+        <label asp-for="CreatedItem.ListRetailCost" class="col-2"></label>
+        <input asp-for="CreatedItem.ListRetailCost" class="form-control col-2" />
         <span asp-validation-for="CreatedItem.ListRetailCost" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="CreatedItem.Measure"></label>
-        <select name="U/M" asp-for="CreatedItem.Measure" asp-items="@Model.UnitMeasurementOptions" class="form-control"></select>
+
+    <br />
+
+    <div class="row">
+        <label asp-for="CreatedItem.Measure" class="col-2"></label>
+        <select name="U/M" asp-for="CreatedItem.Measure" asp-items="@Model.UnitMeasurementOptions" class="form-control col-4"></select>
     </div>
+
+    <br />
+    <br />
 
     <div>
         <label>Assembly Components:</label>
         <br />
         <!--Add Assembly parts Button-->
         <a class="float-left shadow-sm rounded-circle" asp-page="./AddAssemblyPart"><i class="fas fa-plus-circle fa-3x"></i></a>
+        <a class="btn btn-primary float-right" asp-page="./Inventory">Cancel</a>
     </div>
-    <a class="btn btn-primary" asp-page="./Inventory">Cancel</a>
+    
 </form>
 
