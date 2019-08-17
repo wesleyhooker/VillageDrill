@@ -31,6 +31,7 @@
                     <span asp-validation-for="PurchaseOrder.EstimatedDelivery" class="text-danger"></span>
                 </div>
             </div>
+            @*Update page to work with items, will likely need AJAX*@
             <div class="form-group col-md-6">
                 <label asp-for="PurchaseOrder.OrderItems" class="col-form-label">Part</label>
                 <select asp-for="PurchaseOrder.OrderItems" class="form-control">
